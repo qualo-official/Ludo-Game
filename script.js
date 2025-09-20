@@ -188,8 +188,7 @@ class Player_Piece {
 }
 
 // Getting input from user, that how many players are getting played
-// let numPvP = parseInt(prompt("Enter no. of players (choose from 2, 3, 4)"));
-let numPvP = 4;
+let numPvP = parseInt(prompt("Enter no. of players (choose from 2, 3, 4)"));
 
 if (numPvP > 4 || numPvP < 2 || !numPvP) {
    location.reload();
