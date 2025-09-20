@@ -1,0 +1,377 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+:root {
+   --red: #d30000;
+   --green: #009a2a;
+   --yellow: #fee800;
+   --blue: #00acff;
+}
+
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: "Inter", sans-serif;
+}
+
+html,
+body {
+   width: 100%;
+   height: 100%;
+   background-color: #212121;
+}
+
+.ludoContainer {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 50px;
+   width: 100%;
+   height: 100vh;
+}
+
+#ludoBoard {
+   max-width: 500px;
+   max-height: 500px;
+   width: 100%;
+   height: 100%;
+   background: #fff;
+   display: grid;
+   grid-template-areas:
+      "red-Board red-Board green-Path green-Board green-Board"
+      "red-Board red-Board green-Path green-Board green-Board"
+      "red-Path red-Path win-Zone yellow-Path yellow-Path"
+      "blue-Board blue-Board blue-Path yellow-Board yellow-Board"
+      "blue-Board blue-Board blue-Path yellow-Board yellow-Board";
+}
+
+/* Board */
+
+#red-Board {
+   grid-area: red-Board;
+   background-color: var(--red);
+}
+
+#yellow-Board {
+   grid-area: yellow-Board;
+   background-color: var(--yellow);
+}
+
+#blue-Board {
+   grid-area: blue-Board;
+   background-color: var(--blue);
+}
+
+#green-Board {
+   grid-area: green-Board;
+   background-color: var(--green);
+}
+
+/* Path */
+
+#green-Path {
+   grid-area: green-Path;
+   display: grid;
+}
+
+#blue-Path {
+   grid-area: blue-Path;
+}
+
+#yellow-Path {
+   grid-area: yellow-Path;
+}
+
+#red-Path {
+   grid-area: red-Path;
+}
+
+#win-Zone {
+   position: relative;
+   overflow: hidden;
+   grid-area: win-Zone;
+}
+
+.shapes {
+   position: absolute;
+   width: 80%;
+   height: 80%;
+   border: 1px solid rgb(48, 48, 48);
+}
+
+.shape1 {
+   top: 10%;
+   right: 66%;
+   transform: rotate(45deg);
+   background-color: var(--red);
+}
+
+.shape2 {
+   top: 10%;
+   left: 66%;
+   transform: rotate(45deg);
+   background-color: var(--yellow);
+}
+
+.shape3 {
+   top: -46%;
+   right: 10%;
+   transform: rotate(45deg);
+   background-color: var(--green);
+}
+
+.shape4 {
+   top: 66%;
+   right: 10%;
+   transform: rotate(45deg);
+   background-color: var(--blue);
+}
+
+#win-Zone p {
+   font-size: 14px;
+   font-weight: 600;
+}
+
+.verticalPath {
+   display: grid;
+   grid-template-rows: repeat(6, 1fr);
+   grid-template-columns: repeat(3, 1fr);
+}
+
+.horizontalPath {
+   display: grid;
+   grid-template-rows: repeat(3, 1fr);
+   grid-template-columns: repeat(6, 1fr);
+}
+
+.board {
+   padding: 12px;
+   /* background-color: #1212; */
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.board div {
+   width: 80%;
+   height: 80%;
+   background: white;
+   display: grid;
+   grid-template-rows: 1fr 1fr;
+   grid-template-columns: 1fr 1fr;
+   align-items: center;
+   justify-items: center;
+}
+
+.board div span {
+   width: 50%;
+   height: 50%;
+   border-radius: 50%;
+   position: relative;
+}
+
+#yellow-Board div span {
+   background: var(--yellow);
+}
+
+#blue-Board div span {
+   background: var(--blue);
+}
+
+#red-Board div span {
+   background: var(--red);
+}
+
+#green-Board div span {
+   background: var(--green);
+}
+
+.ludoBox {
+   border: 1px solid #11111142;
+   position: relative;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.ludoBox .fa-location-pin {
+   position: absolute;
+   margin: 2px;
+   font-size: 2rem;
+   transform: translate(0, -40%);
+   -webkit-text-stroke-width: 2px;
+   z-index: 100;
+   animation: animateMy 0.08s linear;
+   -webkit-text-stroke-color: #fff;
+}
+
+.ludoBox .fa-star {
+   position: absolute;
+   color: #222;
+   opacity: 0.6;
+}
+
+@keyframes animateMy {
+   0% {
+      transform: scale(1.1) translate(0, -40%);
+   }
+   100% {
+      transform: scale(1) translate(0, -40%);
+   }
+}
+
+.ludoBox .fa-location-pin:nth-child(2) {
+   transform: translate(10px, -40%);
+}
+
+.ludoBox .fa-location-pin:nth-child(3) {
+   transform: translate(-10px, -40%);
+}
+
+.ludoBox .fa-location-pin:nth-child(4) {
+   transform: translate(0px, -40%) scale(0.8);
+}
+
+.redLudoBox {
+   background: var(--red);
+}
+
+.greenLudoBox {
+   background: var(--green);
+}
+
+.yellowLudoBox {
+   background: var(--yellow);
+}
+
+.blueLudoBox {
+   background: var(--blue);
+}
+
+.board .piece {
+   position: absolute;
+   -webkit-text-stroke-width: 2px;
+   -webkit-text-stroke-color: #fff;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -90%);
+   font-size: 2.3rem;
+   z-index: 100;
+}
+
+.board.active {
+   animation: animateBoard 0.8s linear infinite;
+}
+
+@keyframes animateBoard {
+   0% {
+      filter: brightness(1.4);
+   }
+   50% {
+      filter: brightness(1);
+   }
+   100% {
+      filter: brightness(1.4);
+   }
+}
+
+.red-piece {
+   color: var(--red);
+}
+
+.yellow-piece {
+   color: var(--yellow);
+}
+
+.green-piece {
+   color: var(--green);
+}
+
+.blue-piece {
+   color: var(--blue);
+   z-index: 100;
+}
+
+/* adding numbering on pieces */
+.blue-piece::after {
+   content: attr(myPieceNum);
+   font-weight: 600;
+   font-size: 9px;
+   color: white;
+   background: #00acff;
+   border-radius: 50%;
+   padding: 3px;
+   -webkit-text-stroke-width: 0px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   position: absolute;
+   top: 0;
+   left: 50%;
+   transform: translate(-50%, 2px);
+}
+
+.rollingDice {
+   display: flex;
+   flex-direction: column;
+   gap: 1rem;
+}
+
+.rollingDice h2 {
+   font-size: 1.2rem;
+   color: white;
+}
+
+.rollingDice img {
+   width: 140px;
+}
+
+.rollingDice #rollDiceButton {
+   font-size: 1rem;
+   font-weight: 600;
+   padding: 0.4rem 0;
+   cursor: pointer;
+}
+
+#declaredWinner {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   backdrop-filter: blur(10px);
+   z-index: 9999;
+   color: white;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+canvas {
+   z-index: 99999 !important;
+}
+
+#declaredWinner div {
+   width: 550px;
+   background: #1a1a1a;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   z-index: 9999 !important;
+   justify-content: center;
+   border-radius: 6px;
+   padding: 20px 10px;
+}
+
+#declaredWinner div button {
+   padding: 8px;
+   margin: 10px 0;
+   font-size: 14px;
+   font-weight: 500;
+   cursor: pointer;
+   background: #2b2b2b;
+   color: white;
+   text-transform: uppercase;
+   border: none;
+   border-radius: 6px;
+}

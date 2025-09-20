@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+      <!-- Font Awesome -->
+      <link
+         rel="stylesheet"
+         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+         crossorigin="anonymous"
+         referrerpolicy="no-referrer"
+      />
+
+      <!-- Stylesheets -->
+      <link rel="stylesheet" href="./style.css" />
+
+      <title>Ludo Game</title>
+   </head>
+   <body>
+      <div class="ludoContainer">
+         <div id="ludoBoard">
+            <div id="red-Board" class="board"></div>
+
+            <div id="green-Path" class="verticalPath">
+               <div class="ludoBox" id="r11"></div>
+               <div class="ludoBox" id="r12"></div>
+               <div class="ludoBox" id="r13"></div>
+               <div class="ludoBox" id="r10"></div>
+               <div class="ludoBox greenLudoBox" id="gh1"></div>
+               <div class="ludoBox greenLudoBox" id="g1"></div>
+               <div class="ludoBox greenLudoBox" id="r9"></div>
+               <div class="ludoBox greenLudoBox" id="gh2"></div>
+               <div class="ludoBox" id="g2"></div>
+               <div class="ludoBox" id="r8"></div>
+               <div class="ludoBox greenLudoBox" id="gh3"></div>
+               <div class="ludoBox" id="g3"></div>
+               <div class="ludoBox" id="r7"></div>
+               <div class="ludoBox greenLudoBox" id="gh4"></div>
+               <div class="ludoBox" id="g4"></div>
+               <div class="ludoBox" id="r6"></div>
+               <div class="ludoBox greenLudoBox" id="gh5"></div>
+               <div class="ludoBox" id="g5"></div>
+            </div>
+
+            <div id="green-Board" class="board"></div>
+
+            <div id="red-Path" class="horizontalPath">
+               <div class="ludoBox" id="b13"></div>
+               <div class="ludoBox redLudoBox" id="r1"></div>
+               <div class="ludoBox" id="r2"></div>
+               <div class="ludoBox" id="r3"></div>
+               <div class="ludoBox" id="r4"></div>
+               <div class="ludoBox" id="r5"></div>
+               <div class="ludoBox" id="b12"></div>
+               <div class="ludoBox redLudoBox" id="rh1"></div>
+               <div class="ludoBox redLudoBox" id="rh2"></div>
+               <div class="ludoBox redLudoBox" id="rh3"></div>
+               <div class="ludoBox redLudoBox" id="rh4"></div>
+               <div class="ludoBox redLudoBox" id="rh5"></div>
+               <div class="ludoBox" id="b11"></div>
+               <div class="ludoBox" id="b10"></div>
+               <div class="ludoBox redLudoBox" id="b9"></div>
+               <div class="ludoBox" id="b8"></div>
+               <div class="ludoBox" id="b7"></div>
+               <div class="ludoBox" id="b6"></div>
+            </div>
+
+            <div id="win-Zone">
+               <div class="shapes shape1"></div>
+               <div class="shapes shape2"></div>
+               <div class="shapes shape3"></div>
+               <div class="shapes shape4"></div>
+            </div>
+
+            <div id="yellow-Path" class="horizontalPath">
+               <div class="ludoBox" id="g6"></div>
+               <div class="ludoBox" id="g7"></div>
+               <div class="ludoBox" id="g8"></div>
+               <div class="ludoBox yellowLudoBox" id="g9"></div>
+               <div class="ludoBox" id="g10"></div>
+               <div class="ludoBox" id="g11"></div>
+               <div class="ludoBox yellowLudoBox" id="yh5"></div>
+               <div class="ludoBox yellowLudoBox" id="yh4"></div>
+               <div class="ludoBox yellowLudoBox" id="yh3"></div>
+               <div class="ludoBox yellowLudoBox" id="yh2"></div>
+               <div class="ludoBox yellowLudoBox" id="yh1"></div>
+               <div class="ludoBox" id="g12"></div>
+               <div class="ludoBox" id="y5"></div>
+               <div class="ludoBox" id="y4"></div>
+               <div class="ludoBox" id="y3"></div>
+               <div class="ludoBox" id="y2"></div>
+               <div class="ludoBox yellowLudoBox" id="y1"></div>
+               <div class="ludoBox" id="g13"></div>
+            </div>
+
+            <div id="blue-Board" class="board"></div>
+
+            <div id="blue-Path" class="verticalPath">
+               <div class="ludoBox" id="b5"></div>
+               <div class="ludoBox blueLudoBox" id="bh5"></div>
+               <div class="ludoBox" id="y6"></div>
+               <div class="ludoBox" id="b4"></div>
+               <div class="ludoBox blueLudoBox" id="bh4"></div>
+               <div class="ludoBox" id="y7"></div>
+               <div class="ludoBox" id="b3"></div>
+               <div class="ludoBox blueLudoBox" id="bh3"></div>
+               <div class="ludoBox" id="y8"></div>
+               <div class="ludoBox" id="b2"></div>
+               <div class="ludoBox blueLudoBox" id="bh2"></div>
+               <div class="ludoBox blueLudoBox" id="y9"></div>
+               <div class="ludoBox blueLudoBox" id="b1"></div>
+               <div class="ludoBox blueLudoBox" id="bh1"></div>
+               <div class="ludoBox" id="y10"></div>
+               <div class="ludoBox" id="y13"></div>
+               <div class="ludoBox" id="y12"></div>
+               <div class="ludoBox" id="y11"></div>
+            </div>
+
+            <div id="yellow-Board" class="board"></div>
+         </div>
+
+         <!-- Rolling Dice -->
+         <div class="rollingDice">
+            <h2>Roll Dice:</h2>
+            <img src="./assets/dice_1.png" alt="Roll_Dice" id="rollDice" />
+            <button id="rollDiceButton">ROLL</button>
+         </div>
+      </div>
+
+      <!-- confetti js -->
+      <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+      <!-- Scripts -->
+      <script src="./script.js"></script>
+   </body>
+</html>
