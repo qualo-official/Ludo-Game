@@ -818,7 +818,7 @@ const turnForUser = async (e) => {
    else {
       // if current piece is locked then unlocked and return
       if (piece.status === 0) {
-         piece.unlockedPiece();
+         // piece.unlockedPiece();
          return;
       }
 
